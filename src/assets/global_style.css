@@ -1,0 +1,41 @@
+/* elementUI 字体标准 */
+/* 主标题 */
+.tcw_main_title {
+  color: purple;
+  font-size: 20px;
+}
+
+/* 标题 */
+.tcw_title {
+  color: purple;
+  font-size: 18px;
+}
+
+/* 小标题 */
+.tcw_subtitle {
+  color: purple;
+  font-size: 16px;
+}
+
+/* 正文 */
+.tcw_text {
+  color: purple;
+  font-size: 14px;
+}
+
+/* 辅助文字 */
+.tcw_auxiliary_text {
+  color: purple;
+  font-size: 12px;
+}
+
+/* 表格操作相关样式 */
+.operational_style {
+  color: purple;
+  cursor: pointer;
+}
+
+/* 弹窗提示语颜色 */
+.pop_up_prompt {
+  color: purple;
+}
