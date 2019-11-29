@@ -113,6 +113,7 @@ export default {
     }
   },
   methods: {
+    // 刷新帐户
     refreshAccounts: function(accounts, callback) {
       if (accounts == "all") {
         this.updateAccounts(callback);
@@ -122,6 +123,7 @@ export default {
         }
       }
     },
+    // 更新所有帐户
     updateAccounts: function(callback) {
       window.web3.eth
         .getAccounts()
@@ -152,6 +154,7 @@ export default {
           });
         });
     },
+    // 更新账户
     updateAccount: function(account, callback) {
       // window.console.log('sssssssss',account,window.web3.thk.GetAccount('1',account))
       // window.web3.thk.GetAccount('1',account)
@@ -176,6 +179,7 @@ export default {
           });
         });
     },
+    // 更改主机
     changeHost: function() {
       // window.web3 = window.web3.setProvider(new window.web3.providers.HttpProvider(this.host));
       window.web3 = new window.Web3(
