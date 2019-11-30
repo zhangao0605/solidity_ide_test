@@ -3,13 +3,14 @@
     <div
       class="p-2 d-flex flex-horizontal justify-content-between align-items-center flex-shrink-0"
     >
-      <h5 class="m-0 d-inline-block">Accounts</h5>
+      <h5 class="m-0 d-inline-block">账户</h5>
       <div>
         <button
           class="btn btn-primary btn-sm mr-1"
           @click="$refs.hostModal.show()"
           title="Change Ganache host"
         >
+          更改Ganache主机
           <i class="icon host"></i>
         </button>
         <button
@@ -17,6 +18,7 @@
           @click="updateAccounts()"
           title="Refresh"
         >
+          刷新
           <i class="icon refresh"></i>
         </button>
       </div>
@@ -26,8 +28,8 @@
         <thead>
           <tr class="table-header">
             <th class="table-fit bg-dark"></th>
-            <th class="bg-dark">Account</th>
-            <th class="bg-dark balance-cell">Balance</th>
+            <th class="bg-dark">账户</th>
+            <th class="bg-dark balance-cell">余额</th>
           </tr>
         </thead>
         <tbody>

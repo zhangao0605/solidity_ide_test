@@ -1,10 +1,11 @@
 <template>
         <div class="d-flex flex-column h-50 bg-dark bottom-separator">
             <div class="p-2 d-flex flex-horizontal justify-content-between align-items-center flex-shrink-0">
-                <h5 class="m-0 d-inline-block">Messages</h5>
+                <h5 class="m-0 d-inline-block">消息</h5>
                 <div class="text-nowrap">
-                    <button class="btn btn-sm btn-primary mr-1" @click="compile()">Compile</button>
-                    <button class="btn btn-sm btn-primary" @click="deploy()">Deploy</button>
+                    <button class="btn btn-sm btn-primary mr-1" v-show="isSave" @click="saveContract()">保存合约</button>
+                    <button class="btn btn-sm btn-primary mr-1" @click="compile()">编译</button>
+                    <button class="btn btn-sm btn-primary" @click="deploy()">部署</button>
                 </div>
             </div>
             <div class="flex scrollable flex-grow-1">
@@ -27,12 +28,15 @@
             return {
                 messages: [],
                 messageCount: 0,
+                isSave:false,
                 processing: false,
+
             }
         },
         methods: {
             compile: function() {
                 GlobalEvent.$emit('compile');
+                console.log(GlobalEvent)
             },
             deploy: function() {
                 GlobalEvent.$emit('deploy');
@@ -56,6 +60,15 @@
                     this.addMessage(messages[i]);
                 }
             },
+            isShowSave: function(messages) {
+              this.isSave=messages
+            },
+            saveContract:function(){
+                GlobalEvent.$emit('compile');
+                setTimeout(()=>{
+                    this.isSave&&this.$router.push('/')
+                },1000)
+            },
             addMessage: function(message) {
                 message.id = this.messageCount++;
                 this.messages.push(message);
@@ -66,6 +79,7 @@
         },
         mounted() {
             GlobalEvent.$on('messages', this.addMessages);
+            GlobalEvent.$on('isShowSave', this.isShowSave);
             GlobalEvent.$on('message', this.addMessage);
             GlobalEvent.$on('clearMessages', this.clearMessages);
             GlobalEvent.$on('processing', this.setProcessing);

@@ -3,13 +3,14 @@
     <div
       class="p-2 d-flex flex-horizontal justify-content-between align-items-center flex-shrink-0"
     >
-      <h5 class="m-0 d-inline-block">Browser</h5>
+      <h6 class="m-0 d-inline-block">合约编辑器</h6>
       <div>
         <button
           class="btn btn-primary btn-sm mr-1"
           @click="$refs.browseModal.show()"
           title="Open..."
         >
+          打开
           <i class="icon directory"></i>
         </button>
         <button
@@ -17,6 +18,7 @@
           @click="updateFileList()"
           title="Refresh"
         >
+          刷新
           <i class="icon refresh"></i>
         </button>
       </div>
@@ -26,24 +28,27 @@
         <b-form-input
           v-model.trim="newFile"
           type="text"
-          placeholder="New file..."
+          placeholder="该功能已被禁用"
           size="sm"
           id="new-file"
           maxlength="255"
           ref="create"
+          disabled
           @keyup.enter.native="create"
           @keydown="onInput"
         />
         <b-input-group-append>
           <b-button
-            variant="success"
+            variant="danger"
             size="sm"
             class="flex-shrink-0"
+            style="cursor:default"
             v-on:click="create"
-            :disabled="!validateNewFile()"
-            >Create</b-button
+            disabled
+            >创建</b-button
           >
         </b-input-group-append>
+        <!--            :disabled="!validateNewFile()"-->
       </b-input-group>
     </div>
     <div class="scrollable d-flex">
@@ -158,7 +163,7 @@ export default {
               const file = response.data[key];
               this.files.push(file);
             }
-
+console.log(this.files)
             this.files.sort(this.sort);
             this.updateSelection();
             this.$refs.rootDirectory.open = true;
