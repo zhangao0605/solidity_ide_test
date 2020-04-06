@@ -24,7 +24,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "ganache-cli": "^6.4.1",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.3",
     "solc": "^0.5.8",
     "web3.js-thk": "^1.0.1"
   },
