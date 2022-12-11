@@ -22,7 +22,7 @@
     "vuex": "^3.0.1",
     "web3-eth-iban": "^1.2.4",
     "body-parser": "^1.18.3",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "ganache-cli": "^6.4.1",
     "minimist": "^1.2.0",
     "solc": "^0.5.8",
